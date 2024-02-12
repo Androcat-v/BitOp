@@ -13,3 +13,5 @@ std::size_t Find10(std::size_t param);
 
 std::size_t Find00(std::size_t param);
 
+void PrintBinary(std::size_t value);
+

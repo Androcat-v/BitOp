@@ -12,7 +12,7 @@ void Task1()
 	ParamBitSet bitVal(param);
 	std::cout << bitVal << std::endl;
 
-	std::cout << "enter a number of the bit (counting from right)" << std::endl;
+	std::cout << "enter a number of the bit to remove (counting from right)" << std::endl;
 	std::size_t bitIndex = ReadSizeT();
 
 	std::cout << ParamBitSet(RemoveBit(param, bitIndex)) << std::endl;
@@ -21,9 +21,12 @@ void Task1()
 
 void Task2()
 {
+	using ParamBitSet = std::bitset<CHAR_BIT * sizeof(std::size_t)>;
 	std::cout << "enter a number" << std::endl;
 	std::size_t param = ReadSizeT();
-	if (param != 0) { std::cout << "the index of the highest bit is  " << FindHighest(param) << std::endl; }
+	ParamBitSet bitVal(param);
+	std::cout << bitVal << std::endl;
+	if (param != 0) { std::cout << "the index of the highest bit is " << FindHighest(param) << std::endl; }
 	else { std::cout << "no bits are equal to 1" << std::endl; };
 
 }
@@ -36,18 +39,23 @@ void Task3()
 	ParamBitSet bitVal(param);
 	std::cout << bitVal << std::endl;
 
-	std::cout << "enter a number of the bit (counting from right)" << std::endl;
+	std::cout << "enter a number of the bit to reset (counting from right)" << std::endl;
 	std::size_t bitIndex = ReadSizeT();
 
 	std::size_t result = ResetBit(param, bitIndex);
 	std::cout << "The number after change: " << result << std::endl << ParamBitSet(result) << std::endl;
 }
 
-void Task4() 
+void Task4()
 {
 	using ParamBitSet = std::bitset<CHAR_BIT * sizeof(std::size_t)>;
 	std::cout << "enter a number" << std::endl;
 	std::size_t param = ReadSizeT();
+	if (param == 0) 
+	{
+		std::cout << "no bits to move" << std::endl;
+		return;
+	}
 	ParamBitSet bitVal(param);
 	std::cout << bitVal << std::endl;
 
